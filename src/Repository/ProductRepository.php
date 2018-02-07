@@ -13,6 +13,23 @@ class ProductRepository extends ServiceEntityRepository
         parent::__construct($registry, Product::class);
     }
 
+    public function findAllWithTags() {
+        return $this->createQueryBuilder('p')
+                ->leftJoin('p.tags', 't')
+                ->addSelect('t')
+                ->getQuery()
+                ->getResult();
+    }
+    
+    public function findByTagWithTags($tag) {
+        return $this->createQueryBuilder('p')
+                ->leftJoin('p.tags', 't')
+                ->addSelect('t')
+                ->where('t.name = :name')
+                ->setParameter(':name', $tag->getName())
+                ->getQuery()
+                ->getResult();
+    }
     /*
     public function findBySomething($value)
     {

@@ -6,6 +6,14 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="{{ path('list_user') }}">Liste utilisateur</a></li> 
+                    <li><a href="{{ path('list_product') }}">Liste des produits</a></li>
+                </ul>
+            </nav>    
+        </header>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
