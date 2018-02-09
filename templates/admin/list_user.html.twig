@@ -13,7 +13,7 @@
         {% for user in users %}
             <li>
             {#<?= htmlspecialchars($user->getFirstName()); ?>#}
-            {{ user.firstname }} {{ user.lastname }}
+            {{ user.firstname }} {{ user.lastname }} <a href="{{ path('user_details', { id : user.id }) }}">Details</a>
             </li>
             {#<?php endforeach; ?>#}
         {% endfor %}

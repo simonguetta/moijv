@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\User;
 use App\Repository\UserRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -25,10 +26,9 @@ class UserController extends Controller
     }
     
     /**
-     * @Route("/admin/user/{id}")
+     * @Route("/admin/user/{id}", name="user_details")
      */
-    public function details(UserRepository $userRepo, $id) {
-        $user = $userRepo->find($id);
+    public function details(User $user) {
         return $this->render('admin/details_user.html.twig', [
             'user' => $user
         ]);
